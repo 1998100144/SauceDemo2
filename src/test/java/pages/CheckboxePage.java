@@ -17,14 +17,14 @@ public class CheckboxePage extends BasePage{
         driver.get(BASE_URL + "/checkboxes");
     }
 
-    public boolean selectCheckboxeOne() {
+    public boolean checkboxOneIsSelected() {
         return driver.findElement(CHECKBOX_ONE).isSelected();
     }
     public void clickChekboxeOne() {
         driver.findElement(CHECKBOX_ONE).click();
     }
 
-    public boolean selectCheckboxeTwo() {
+    public boolean checkboxTwoIsSelected() {
         return driver.findElement(CHECKBOX_TWO).isSelected();
     }
     public void clickCheckboxeTwo() {

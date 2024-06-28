@@ -8,18 +8,18 @@ public class CheckboxeTest extends BaseTest {
     @Test
     public void checkboxTestOne() {
         checkboxePage.open();
-        assertFalse(checkboxePage.selectCheckboxeOne());
+        assertFalse(checkboxePage.checkboxOneIsSelected());
 
         checkboxePage.clickChekboxeOne();
-        assertTrue(checkboxePage.selectCheckboxeOne());
+        assertTrue(checkboxePage.checkboxOneIsSelected());
     }
 
     @Test
     public void checkboxTestTwo()   {
         checkboxePage.open();
-        assertTrue(checkboxePage.selectCheckboxeTwo());
+        assertTrue(checkboxePage.checkboxTwoIsSelected());
 
         checkboxePage.clickCheckboxeTwo();
-        assertFalse(checkboxePage.selectCheckboxeTwo());
+        assertFalse(checkboxePage.checkboxTwoIsSelected());
     }
 }

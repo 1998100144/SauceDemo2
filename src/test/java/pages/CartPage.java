@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +16,7 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    public boolean productInCart(){
-        return driver.findElement(PRODUCT_NAME).isSelected();
-    }
+    @Step("Получение списка товаров")
     public ArrayList<String> getProductName() {
           List<WebElement> productsName = driver.findElements(PRODUCT_NAME);
           ArrayList<String> name = new ArrayList<>();
@@ -26,7 +25,7 @@ public class CartPage extends BasePage {
         }
           return name;
     }
-
+    @Step("Количество товаров в корзине")
     public int quantityProductInCart() {
         List<WebElement> idProductInCart = driver.findElements(ID_PRODUCT_IN_CART);
         return idProductInCart.size();

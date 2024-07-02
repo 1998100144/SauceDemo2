@@ -10,16 +10,17 @@ public class LoginPage extends BasePage {
     private final By USERNAME_INPUT = By.id("user-name");
     private final By PASSWORD_INPUT = By.id("password");
     private final By LOGIN_BUTTON = By.id("login-button");
-    private final By EMPTY_USER_INPUT_LOGIN = By.cssSelector("[class=title]");
     private final By ERROR_MESSAGE = By.xpath("//h3[@data-test='error']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
+
     @Step("Открытие браузера")
     public void open() {
         driver.get(BASE_URL + "/inventory.html");
     }
+
     @Step("Ввод данных пользователя {user} и {password}")
     public void login(String user, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(user);
@@ -28,9 +29,6 @@ public class LoginPage extends BasePage {
         AllureUtils.takeScreenshot(driver);
     }
 
-    public String getEmptyUserInputLogin() {
-        return driver.findElement(EMPTY_USER_INPUT_LOGIN).getText();
-    }
     @Step("Получение текста об ошибке")
     public String getErrorMessage() {
         return driver.findElement(ERROR_MESSAGE).getText();

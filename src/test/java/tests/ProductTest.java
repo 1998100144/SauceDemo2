@@ -11,7 +11,7 @@ public class ProductTest extends BaseTest {
     @Test(description = "Добавление и сравнение товара в корзине")
     public void buyProduct() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         assertEquals(productPage.getTitle(), "Products");
         productPage.addToCart(goodName);
         productPage.addToCart(2);
@@ -22,7 +22,7 @@ public class ProductTest extends BaseTest {
     @Test(description = "Соответствие количества товаров в корзине")
     public void quantityProducts(){
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productPage.addToCart(goodName);
         productPage.openCart();
         assertEquals(cartPage.quantityProductInCart(), 1);

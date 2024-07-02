@@ -16,15 +16,17 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
+
     @Step("Получение списка товаров")
     public ArrayList<String> getProductName() {
-          List<WebElement> productsName = driver.findElements(PRODUCT_NAME);
-          ArrayList<String> name = new ArrayList<>();
-          for(WebElement product: productsName){
-              name.add(product.getText());
+        List<WebElement> productsName = driver.findElements(PRODUCT_NAME);
+        ArrayList<String> name = new ArrayList<>();
+        for (WebElement product : productsName) {
+            name.add(product.getText());
         }
-          return name;
+        return name;
     }
+
     @Step("Количество товаров в корзине")
     public int quantityProductInCart() {
         List<WebElement> idProductInCart = driver.findElements(ID_PRODUCT_IN_CART);

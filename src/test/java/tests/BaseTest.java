@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductPage;
+import utils.PropertyReader;
+
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -17,6 +19,8 @@ public class BaseTest {
     LoginPage loginPage;
     ProductPage productPage;
     CartPage cartPage;
+    String user;
+    String password;
 
     @BeforeMethod
     public void setup() {
@@ -26,6 +30,9 @@ public class BaseTest {
         options.addArguments("headless");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        System.setProperty("BASE_URL", PropertyReader.getProperty("sausedemo.url"));
+        user = PropertyReader.getProperty("sausedemo.user");
+        password = PropertyReader.getProperty("sausedemo.password");
 
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);
